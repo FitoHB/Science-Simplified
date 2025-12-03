@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stem Cells - Science Simplified</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.8;
+            color: #334155;
+            background: #f0f9ff;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #bae6fd;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1.2rem 1.5rem;
+            transition: all 0.2s ease;
+            display: block;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        nav ul li a:hover {
+            color: #0ea5e9;
+            background: #f0f9ff;
+        }
+
+        nav ul li a.active {
+            color: #0ea5e9;
+            border-bottom: 2px solid #0ea5e9;
+            margin-bottom: -2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid #e0f2fe;
+        }
+
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        .topic-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .topic-link {
+            display: block;
+            background: #ffffff;
+            padding: 0;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #0f172a;
+            transition: all 0.2s ease;
+            border: 1px solid #e0f2fe;
+            overflow: hidden;
+        }
+
+        .topic-link:hover {
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .link-content {
+            padding: 1.5rem;
+        }
+
+        .topic-link strong {
+            font-size: 1.1rem;
+            color: #0f172a;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        footer {
+            background: #ffffff;
+            color: #64748b;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+            border-top: 2px solid #e0f2fe;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem auto;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav ul li a {
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="stem-cells.html" class="active">Stem Cells</a></li>
+            <li><a href="articles.html">Latest Articles</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <img src="https://images.unsplash.com/photo-1579154204601-01588f351e67?w=1200&h=400&fit=crop" alt="Stem Cell Research" style="width: 100%; height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 2rem;">
+            
+            <h1>Stem Cell Research</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            
+            <h2>Overview</h2>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
+        </div>
+
+        <div class="card">
+            <h2>Research Topics</h2>
+            
+            <a href="discovery.html" class="topic-link">
+                <img src="https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=1200&h=180&fit=crop" alt="Cellular Mechanisms" class="topic-image">
+                <div class="link-content">
+                    <strong>Discovery of Stem Cells</strong>
+                    <div class="article-meta">Lorem ipsum dolor sit amet, consectetur adipiscing elit</div>
+                </div>
+            </a>
+            
+            <a href="types.html" class="topic-link">
+                <img src="https://images.unsplash.com/photo-1559757175-5700dde675bc?w=1200&h=180&fit=crop" alt="Therapeutic Applications" class="topic-image">
+                <div class="link-content">
+                    <strong>Types of Stem Cells</strong>
+                    <div class="article-meta">Ut enim ad minim veniam, quis nostrud exercitation ullamco</div>
+                </div>
+            </a>
+            
+            <a href="current-research.html" class="topic-link">
+                <img src="https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=1200&h=180&fit=crop" alt="Current Research" class="topic-image">
+                <div class="link-content">
+                    <strong>Applications</strong>
+                    <div class="article-meta">Duis aute irure dolor in reprehenderit in voluptate velit</div>
+                </div>
+            </a>
+            
+            <a href="regulatory-framework.html" class="topic-link">
+                <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1200&h=180&fit=crop" alt="Regulatory Framework" class="topic-image">
+                <div class="link-content">
+                    <strong>Games</strong>
+                    <div class="article-meta">Excepteur sint occaecat cupidatat non proident</div>
+                </div>
+            </a>
+            
+            
+        </div>
+
+    </div>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>

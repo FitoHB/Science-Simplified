@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Articles - Science Simplified</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.8;
+            color: #334155;
+            background: #f0f9ff;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #bae6fd;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1.2rem 1.5rem;
+            transition: all 0.2s ease;
+            display: block;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        nav ul li a:hover {
+            color: #0ea5e9;
+            background: #f0f9ff;
+        }
+
+        nav ul li a.active {
+            color: #0ea5e9;
+            border-bottom: 2px solid #0ea5e9;
+            margin-bottom: -2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid #e0f2fe;
+        }
+
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        .topic-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .article-link {
+            display: block;
+            background: #ffffff;
+            padding: 0;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #0f172a;
+            transition: all 0.2s ease;
+            border: 1px solid #e0f2fe;
+            overflow: hidden;
+        }
+
+        .article-link:hover {
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .link-content {
+            padding: 1.5rem;
+        }
+
+        .article-link strong {
+            font-size: 1.1rem;
+            color: #0f172a;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .admin-panel {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .admin-panel h2 {
+            color: #78350f;
+            margin-top: 0;
+        }
+
+        .admin-panel p {
+            color: #78350f;
+        }
+
+        .admin-input {
+            width: 100%;
+            padding: 0.875rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e0f2fe;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .admin-input:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0ea5e9;
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #0284c7;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        footer {
+            background: #ffffff;
+            color: #64748b;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+            border-top: 2px solid #e0f2fe;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem auto;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav ul li a {
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="stem-cells.html" class="active">Stem Cells</a></li>
+            <li><a href="articles.html">Latest Articles</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>Types of Stem Cells</h2>
+            <p>Fatarrasyad Habban<br>
+                Mrs. Prabahar<br>
+                Directed Study<br>
+                28 September 2025
+
+                <br><br>
+                <b>The Different Types of Stem Cells and Their Applications</b>
+                <br><br>Stem cells are classified based on their potency, their ability to give rise to different cell types, and their source. The four major types of stem cell are embryonic stem cells (ESCs), adult (tissue-specific) stem cells, induced pluripotent stem cells (iPSCs), and perinatal stem cells. Each type has unique characteristics that determine their potential applications.
+                <br><br><b>Embryonic Stem Cells (ESCs)</b>
+                <br><br>Embryonic stem cells are pluripotent cells derived from the inner cell mass of a blastocyst, an early-stage embryo, ~five days after fertilization. They can differentiate into almost any cell type in the human body (Mayo Clinic). Recall that the Kleinsmith and Pierce experiment gave evidence to the conjecture that stem cell potency is determined by their place of origin. ESCs display the highest degree of pluripotency due to being derived from embryos, where cells have the potential to differentiate into any type of cell to finish development.
+                <br><br>The potential of embryonic stem cells in regenerative medicine is very high. Scientists have explored their use in treating spinal cord injuries, heart disease, diabetes, and neurodegenerative disorders such as Parkinson’s disease. ESCs are also used to model human diseases in vitro (in controlled external environment, test tube) and to test new drugs for safety and effectiveness (AboutStemCells.org). However, the use of embryonic stem cells raises ethical and regulatory concerns, as in order to obtain them, it requires the destruction of a human embryo.
+                <br><br><b>Somatic Stem Cells</b>
+                <br><br>Adult stem cells, also known as somatic or tissue-specific stem cells, are multipotent cells found throughout the body after development. They play a vital role in maintaining and repairing the tissues they came from. Examples include hematopoietic stem cells in bone marrow, which generate blood cells, and mesenchymal stem cells, which can produce bone, cartilage, and fat cells (“Stem Cell Basics”).
+                <br><br>Compared to embryonic stem cells, adult stem cells are less controversial because they can be harvested from the patient’s own tissues, reducing ethical concerns and the risk of immune rejection. However, adult stem cells are limited in their potency; they generally can differentiate only into cell types of their tissue of origin (AboutStemCells.org). Along with the reduced potency, their regeneration tends to decrease as they age and get exposed to disease. And unlike embryonal stem cells, such as the ones used in the Kleinsmith and Pierce experiment, somatic stem cells are harder to obtain and isolate.
+                <br><br><b>Induced Pluripotent Stem Cells (iPSCs)</b>
+                <br><br>A breakthrough in stem cell research came in 2006, when scientist Shinya Yamanaka and his team discovered a way to reprogram ordinary adult cells, such as skin or blood cells, into a pluripotent state. These cells, called induced pluripotent stem cells (iPSCs), closely resemble embryonic stem cells in their ability to differentiate into almost any cell type (UCLA Stem Cell Institute). The reprogramming process that creates iPSCs involves introducing specific genes that manually reset the cell’s identity, turning it back into an undifferentiated stem cell.
+                <br><br>The discovery of iPSCs revolutionized regenerative medicine because it eliminated many of the ethical concerns associated with embryonic stem cells. Each person’s body is different, so it is common for transplants to be rejected from the recipient’s body. But iPSCs can be created from a patient’s own cells, making them ideal for personalized medicine and reducing the risk of immune rejection (Mayo Clinic). 
+                <br><br>Despite all the positives, iPSC technology still faces challenges. Reprogramming can introduce genetic abnormalities, and ensuring that reprogrammed cells differentiate safely into the desired cell types remains a significant hurdle. There is also concern that iPSCs could form tumors if transplanted without proper control (NIH). Despite these limitations, iPSCs hold promise for the future of stem cell research as understanding over them grows.
+                <br><br><b>Perinatal Stem Cells</b>
+                <br><br>Perinatal stem cells are derived from tissues associated with birth, such as the umbilical cord blood, placenta, and amniotic fluid. These cells are typically multipotent and are considered an intermediate between embryonic and adult stem cells (Cade). They can be collected noninvasively and without ethical controversy, as these tissues are normally discarded after birth.
+                <br><br>Research continues to explore their potential in repairing heart tissue, regenerating liver cells, and treating neurological conditions. Because perinatal cells are younger and less exposed to environmental damage, they may even have greater regenerative potential than adult stem cells. Cord blood banking, storing umbilical cord cells for potential future use, has become increasingly popular among families as a form of biological insurance (Cox).
+                <br><br><b>Conclusion</b>
+                <br><br>Stem cells represent one of the most promising frontiers in modern science, with each type contributing unique insights and opportunities. As technology progresses and our own understanding grows, stem cells will only keep getting more and more versatile and useful.
+                <br><br><br><br>
+                Works Cited
+                <br><br>“About Stem Cells.” <i>AboutStemCells.org</i>, https://www.aboutstemcells.org/info/stem-cell-types. Accessed 26 Sep. 2025.
+                <br><br>Hildreth, Cade. “BioInformant: Perinatal Stem Cells.” <i>BioInformant</i>, https://bioinformant.com/perinatal-stem-cells/. 5 Dec. 2024. Accessed 26 Sep. 2025.
+                <br><br>Mayo Clinic. “Stem Cells: What They Are and What They Do.” <i>Mayo Clinic</i>, https://www.mayoclinic.org/tests-procedures/bone-marrow-transplant/in-depth/stem-cells/art-20048117. 23 Mar. 2024. Accessed Sep 25. 2025.
+                <br><br>National Institutes of Health. “Stem Cell Basics.” <i>National Institute of Health</i>, https://stemcells.nih.gov/info/basics/stc-basics. Accessed 25 Sep. 2025.
+                <br><br>UCLA Stem Cell Institute. “Induced Pluripotent Stem Cells.” <i>University of California, Los Angeles</i>, https://stemcell.ucla.edu/glossary/induced-pluripotent-stem-cells. Accessed 26 Sep. 2025.
+                <br><br>Cox, Claire. “Types of Stem Cells and Their Uses.” <i>EuroGCT</i>, https://www.eurogct.org/types-stem-cells-and-their-uses-0. 2023. Accessed 25 Sep. 2025.
+
+
+
+            </p>
+            
+        </div>

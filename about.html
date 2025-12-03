@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Science Simplified</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.8;
+            color: #334155;
+            background: #f0f9ff;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #bae6fd;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1.2rem 1.5rem;
+            transition: all 0.2s ease;
+            display: block;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        nav ul li a:hover {
+            color: #0ea5e9;
+            background: #f0f9ff;
+        }
+
+        nav ul li a.active {
+            color: #0ea5e9;
+            border-bottom: 2px solid #0ea5e9;
+            margin-bottom: -2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid #e0f2fe;
+        }
+
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #334155;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .feature-box {
+            background: #ffffff;
+            padding: 0;
+            border-radius: 12px;
+            border: 1px solid #e0f2fe;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(14, 165, 233, 0.15);
+        }
+
+        .feature-content {
+            padding: 1.5rem;
+        }
+
+        footer {
+            background: #ffffff;
+            color: #64748b;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+            border-top: 2px solid #e0f2fe;
+        }
+
+        .about-header {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .about-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid #bae6fd;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem auto;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav ul li a {
+                padding: 1rem 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About Me</a></li>
+            <li><a href="stem-cells.html">Stem Cells</a></li>
+            <li><a href="articles.html">Latest Articles</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <div class="about-header">
+                <img src="#" alt="Profile" class="about-image">
+                <div>
+                    <h1>About Me</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+            </div>
+            
+            <h2>Background</h2>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+            <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit.</p>
+            
+            <h2>Research Interests</h2>
+            <img src="https://images.unsplash.com/photo-1576086213369-97a306d36557?w=1200&h=300&fit=crop" alt="Laboratory Work" style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; margin: 1.5rem 0;">
+            <p>Sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+            
+            <h2>Philosophy</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <img src="https://images.unsplash.com/photo-1532187863486-abf9dbad1b69?w=400&h=200&fit=crop" alt="Evidence" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Evidence-Based Approach</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=400&h=200&fit=crop" alt="Collaboration" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Collaborative Research</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=400&h=200&fit=crop" alt="Engagement" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Public Engagement</h3>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <h2>Contact</h2>
+            <p><b>Email:</b> fito.habban@gmail.com<br><br><b>Phone:</b>781-354-3153<br><br>Feel free to reach out with questions. Or, if you see any misinformation, please notify us so we can rectify our mistake!</p>
+        </div>
+    </div>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Science Simplified - Home</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.8;
+            color: #334155;
+            background: #f0f9ff;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            background: #ffffff;
+            padding: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #bae6fd;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1.2rem 1.5rem;
+            transition: all 0.2s ease;
+            display: block;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        nav ul li a:hover {
+            color: #0ea5e9;
+            background: #f0f9ff;
+        }
+
+        nav ul li a.active {
+            color: #0ea5e9;
+            border-bottom: 2px solid #0ea5e9;
+            margin-bottom: -2px;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        /* Cards */
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid #e0f2fe;
+        }
+
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        h3 {
+            color: #334155;
+            margin-bottom: 0.75rem;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        /* Images */
+        .hero-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+
+        .feature-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+
+        .feature-box {
+            background: #ffffff;
+            padding: 0;
+            border-radius: 12px;
+            border: 1px solid #e0f2fe;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(14, 165, 233, 0.15);
+        }
+
+        .feature-content {
+            padding: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #ffffff;
+            color: #64748b;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+            border-top: 2px solid #e0f2fe;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem auto;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav ul li a {
+                padding: 1rem 1.5rem;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-image {
+                height: 250px;
+            }
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #7dd3fc 0%, #38bdf8 100%);
+            color: #0c4a6e;
+            padding: 4rem 2rem;
+            border-radius: 2px;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .hero-section h1 {
+            color: #0c4a6e;
+            margin-bottom: 1rem;
+            font-size: 3rem;
+        }
+
+        .hero-section p {
+            color: #075985;
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 3rem 1.5rem;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="stem-cells.html">Stem Cells</a></li>
+            <li><a href="articles.html">Latest Articles</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <div class="hero-section">
+            <h1>Science Simplified</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+
+        <div class="card">
+            <h2>Our Mission</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+
+        <div class="card">
+            <h2>What We Offer</h2>
+            <div class="features-grid">
+                <div class="feature-box">
+                    <img src="https://images.unsplash.com/photo-1578496781379-7dcfb995293d?w=400&h=200&fit=crop" alt="Research" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Research Excellence</h3>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <img src="https://images.unsplash.com/photo-1507413245164-6160d8298b31?w=400&h=200&fit=crop" alt="Education" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Educational Resources</h3>
+                        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+                <div class="feature-box">
+                    <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=200&fit=crop" alt="Communication" class="feature-image">
+                    <div class="feature-content">
+                        <h3>Clear Communication</h3>
+                        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Our Approach</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.</p>
+        </div>
+    </div>
+
+    <footer>
+        
+    </footer>
+</body>
+</html>

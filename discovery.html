@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Articles - Science Simplified</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.8;
+            color: #334155;
+            background: #f0f9ff;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #bae6fd;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1.2rem 1.5rem;
+            transition: all 0.2s ease;
+            display: block;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        nav ul li a:hover {
+            color: #0ea5e9;
+            background: #f0f9ff;
+        }
+
+        nav ul li a.active {
+            color: #0ea5e9;
+            border-bottom: 2px solid #0ea5e9;
+            margin-bottom: -2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid #e0f2fe;
+        }
+
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        .topic-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .article-link {
+            display: block;
+            background: #ffffff;
+            padding: 0;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #0f172a;
+            transition: all 0.2s ease;
+            border: 1px solid #e0f2fe;
+            overflow: hidden;
+        }
+
+        .article-link:hover {
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .link-content {
+            padding: 1.5rem;
+        }
+
+        .article-link strong {
+            font-size: 1.1rem;
+            color: #0f172a;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .admin-panel {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .admin-panel h2 {
+            color: #78350f;
+            margin-top: 0;
+        }
+
+        .admin-panel p {
+            color: #78350f;
+        }
+
+        .admin-input {
+            width: 100%;
+            padding: 0.875rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e0f2fe;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .admin-input:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0ea5e9;
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #0284c7;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        footer {
+            background: #ffffff;
+            color: #64748b;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+            border-top: 2px solid #e0f2fe;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem auto;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav ul li a {
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="stem-cells.html" class="active">Stem Cells</a></li>
+            <li><a href="articles.html">Latest Articles</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>Discovery of Stem Cells</h2>
+            <p>Fatarrasyad Habban<br>
+                Mrs. Prabahar<br>
+                Directed Study<br>
+                14 September 2025
+
+                <br><br>
+                To understand the current science on stem cells, it is important to know the history behind them, since knowing how they were first discovered can help in connecting the dots between past and present stem cell findings.<br><br>
+
+                Stem cells have been a large topic of interest for a long time due to their pluripotency. Pluripotency is the ability for a cell to differentiate, or turn into, multiple varieties of other cells Stem cell research hit its first major breakthrough in the 1960’s via Kleinsmith and Pierce with their research of pluripotent tumor cells from a rare type of cancer called teratocarcinoma (Kleinsmith, Pierce). Pierce took a sample of teratocarcinoma cells and injected them into the abdomens of mice already infected with the cancer. The cell samples would divide and form clumps in the body called aggregates. However, while teratocarcinoma naturally differentiated into ~15 different tissue types, these aggregates only displayed ~2. They were named “embryoid bodies” due to their structural resemblance to early mice embryos. <br><br>
+
+                Once these embryoid bodies were able to be created and replicated, they inserted those bodies back into the mice and observed their division and differentiation again. They deduced that the cell responsible for the teratocarcinoma was embryonal carcinoma because only the embryoid bodies containing that specific cell resulted in cancerous tumors, and therefore, the pluripotency lay within those same cells. But the researchers needed to prove that each single embryonal cell could display pluripotency, and not just certain cells out of the population. The method they used will be discussed in the video attached to this page.<br><br>
+
+                Out of the 44 trials of inserted embryonal cells, 43 displayed the differentiation of the embryoid bodies into teratocarcinoma. While the degrees of differentiation and types of tissues each sample differentiated into surprisingly differed, the common display of cancerous cell division proved that each individual embryonal carcinoma cell was pluripotent and responsible for creating the tumor via rapid differentiation and division.<br><br>
+
+                Once the researchers were able to verify the pluripotency of single embryonal carcinoma cells, they were able to come to a few conclusions. First off, they pioneered the method that allowed for consistent reproduction and isolation of a pluripotent cell, a method vital to the field and widely applicable for other experiments. And they were able to reasonably challenge the popular stigma at the time regarding cancer. At the time, people believed that cancer was irreversible and that already present body cells were the ones turning into cancer cells. Kleinsmith and Pierce’s experiment lent more weight to the stem cell theory of cancer, the idea that rather than body cells undergoing irreversible change, cancer was the cause of a small population of pluripotent cells rapidly dividing and spontaneously differentiating into cancer cells (Makino). This theory challenged the idea that cancer was irreversible, instead advocating for changing the direction of cancer research into not killing each cancer cell, but directing the small population of stem cells at the root of the problem to differentiate into regular cells rather than cancerous tumors.<br><br>
+
+                Since their experiments, the research of stem cells has rapidly increased in popularity. A type of cell that can potentially become any cell the body needs, or wants, is widely recognized today as one of medicine’s most promising and rewarding ventures. Cancer today is still one of the leading diseases plaguing humanity, but stem cells show a promising venture into innovative medicine that might just lead to its elusive cure.<br><br><br>
+
+
+
+
+
+
+
+
+
+
+
+                Works Cited<br><br>
+                Smith, Austin. “Pluripotent Stem Cells: Private Obsession and Public Expectation.” <i>EMBO</i>. https://pmc.ncbi.nlm.nih.gov/articles/PMC3377278/. 2 Apr. 2010. Accessed 13 Sep. 2025.
+                <br><br>Molecular Medicine, vol. 2, no. 4, 1 Apr. 2010, pp. 113–116, www.ncbi.nlm.nih.gov/pmc/articles/PMC3377278/, https://doi.org/10.1002/emmm.201000065. Accessed 14 Sep. 2025.
+                <br><br>Kleinsmith, Lewis. Pierce, Barry. “Multipotentiality of Single Embryonal Carcinoma Cells.” The University of Michigan. 2 Mar. 1964. Accessed 13 Sep. 2025.
+                <br><br>Makino, S. “Further Evidence Favoring the Concept of the Stem Cell in Ascites Tumors of Rats.” Academy of Science. 1956. Accessed 15 Sep. 2025.
+
+            </p>
+            
+        </div>

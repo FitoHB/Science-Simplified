@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Stem Cell Matching Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+    }
+    .game-container {
+      max-width: 900px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+    .column {
+      background: #ffffff;
+      padding: 15px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .item {
+      padding: 10px;
+      margin: 8px 0;
+      background: #e9eef6;
+      border-radius: 8px;
+      cursor: pointer;
+      user-select: none;
+    }
+    .item.selected {
+      background: #c7dbff;
+    }
+    .item.correct {
+      background: #b6f2c2;
+      cursor: default;
+    }
+    .item.incorrect {
+      background: #f7b2b2;
+    }
+    #message {
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Stem Cell Terminology Matching Game</h1>
+<p style="text-align:center">Click one term and then its matching definition.</p>
+
+<div class="game-container">
+  <div class="column" id="terms"></div>
+  <div class="column" id="definitions"></div>
+</div>
+
+<div id="message"></div>
+
+<script>
+  const pairs = [
+    { term: "Stem Cell", definition: "An undifferentiated cell capable of self-renewal and differentiation." },
+    { term: "Totipotent", definition: "Able to develop into any cell type, including extraembryonic tissues." },
+    { term: "Pluripotent", definition: "Able to develop into almost any cell type in the body." },
+    { term: "Multipotent", definition: "Able to develop into a limited range of related cell types." },
+    { term: "Hematopoietic Stem Cell", definition: "A stem cell that gives rise to all blood cell types." },
+    { term: "Differentiation", definition: "The process by which a cell becomes specialized." }
+  ];
+
+  let selectedTerm = null;
+  let selectedDef = null;
+  let matches = 0;
+
+  function shuffle(array) {
+    return array.sort(() => Math.random() - 0.5);
+  }
+
+  const termsDiv = document.getElementById("terms");
+  const defsDiv = document.getElementById("definitions");
+
+  shuffle([...pairs]).forEach(pair => {
+    const div = document.createElement("div");
+    div.className = "item";
+    div.textContent = pair.term;
+    div.dataset.term = pair.term;
+    div.onclick = () => selectTerm(div);
+    termsDiv.appendChild(div);
+  });
+
+  shuffle([...pairs]).forEach(pair => {
+    const div = document.createElement("div");
+    div.className = "item";
+    div.textContent = pair.definition;
+    div.dataset.term = pair.term;
+    div.onclick = () => selectDef(div);
+    defsDiv.appendChild(div);
+  });
+
+  function selectTerm(div) {
+    if (div.classList.contains("correct")) return;
+    clearSelections("terms");
+    div.classList.add("selected");
+    selectedTerm = div;
+    checkMatch();
+  }
+
+  function selectDef(div) {
+    if (div.classList.contains("correct")) return;
+    clearSelections("definitions");
+    div.classList.add("selected");
+    selectedDef = div;
+    checkMatch();
+  }
+
+  function clearSelections(columnId) {
+    document.getElementById(columnId).querySelectorAll('.item').forEach(i => {
+      i.classList.remove("selected", "incorrect");
+    });
+  }
+
+  function checkMatch() {
+    if (selectedTerm && selectedDef) {
+      if (selectedTerm.dataset.term === selectedDef.dataset.term) {
+        selectedTerm.classList.add("correct");
+        selectedDef.classList.add("correct");
+        matches++;
+        document.getElementById("message").textContent = "Correct!";
+        if (matches === pairs.length) {
+          document.getElementById("message").textContent = "🎉 You matched all terms correctly!";
+        }
+      } else {
+        selectedTerm.classList.add("incorrect");
+        selectedDef.classList.add("incorrect");
+        document.getElementById("message").textContent = "Try again.";
+      }
+      selectedTerm = null;
+      selectedDef = null;
+    }
+  }
+</script>
+
+</body>
+</html>

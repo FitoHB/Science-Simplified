@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latest Articles - Science Simplified</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Times New Roman', 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.8;
+            color: #334155;
+            background: #f0f9ff;
+            min-height: 100vh;
+        }
+
+        nav {
+            background: #ffffff;
+            padding: 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 2px solid #bae6fd;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        nav ul li {
+            margin: 0;
+        }
+
+        nav ul li a {
+            color: #64748b;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 1.2rem 1.5rem;
+            transition: all 0.2s ease;
+            display: block;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+        }
+
+        nav ul li a:hover {
+            color: #0ea5e9;
+            background: #f0f9ff;
+        }
+
+        nav ul li a.active {
+            color: #0ea5e9;
+            border-bottom: 2px solid #0ea5e9;
+            margin-bottom: -2px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 12px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid #e0f2fe;
+        }
+
+        h1 {
+            color: #0f172a;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            color: #1e293b;
+            margin-bottom: 1.5rem;
+            margin-top: 2rem;
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        h2:first-child {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 1.25rem;
+            color: #475569;
+            font-size: 1.05rem;
+        }
+
+        .topic-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .article-link {
+            display: block;
+            background: #ffffff;
+            padding: 0;
+            margin-bottom: 1.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            color: #0f172a;
+            transition: all 0.2s ease;
+            border: 1px solid #e0f2fe;
+            overflow: hidden;
+        }
+
+        .article-link:hover {
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .link-content {
+            padding: 1.5rem;
+        }
+
+        .article-link strong {
+            font-size: 1.1rem;
+            color: #0f172a;
+            font-weight: 600;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-meta {
+            font-size: 0.9rem;
+            color: #64748b;
+            font-weight: 400;
+        }
+
+        .admin-panel {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .admin-panel h2 {
+            color: #78350f;
+            margin-top: 0;
+        }
+
+        .admin-panel p {
+            color: #78350f;
+        }
+
+        .admin-input {
+            width: 100%;
+            padding: 0.875rem;
+            margin-bottom: 1rem;
+            border: 1px solid #e0f2fe;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: border-color 0.2s;
+        }
+
+        .admin-input:focus {
+            outline: none;
+            border-color: #0ea5e9;
+            box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1);
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0ea5e9;
+            color: white;
+            padding: 0.875rem 1.75rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background: #0284c7;
+            box-shadow: 0 4px 12px rgba(14, 165, 233, 0.3);
+        }
+
+        footer {
+            background: #ffffff;
+            color: #64748b;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+            font-size: 0.95rem;
+            border-top: 2px solid #e0f2fe;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 2rem auto;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            nav ul li a {
+                padding: 1rem 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="stem-cells.html" class="active">Stem Cells</a></li>
+            <li><a href="articles.html">Latest Articles</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="card">
+            <h2>Stem Cell Misconceptions</h2>
+            <p>Fatarrasyad Habban<br>
+                Mrs. Prabahar<br>
+                Directed Study<br>
+                14 September 2025
+
+                <br><br>
+                There is a common phenomenon when it comes to medical innovations. Science is something out of sight and out of mind to the general populus, but fearmongering and uncertainty run rampant when the new and unfamiliar scientific innovation can have a personal impact. Medicine is a career that takes years to be versed in, so it is no wonder people without training are unsure of the latest findings.<br><br>
+
+                There are two ends to the spectrum. Vaccinations, for example, have an entire community dedicated to boycotting them. Anti-vaxxers wholeheartedly believe that vaccinations can lead to completely unrelated conditions like autism. <br><br>
+
+                But stem cells are on the other end of the spectrum. Due to misunderstandings of true function, stem cells are seen as all-powerful cells capable of medical miracles. This belief is only reinforced due to popular media like The Imperfects. Even in extreme cases like that, the average person likely does not have the knowledge to understand exactly why stem cells are not actually capable of bestowing superhuman biological capabilities, even if they understand on the surface-level that it is science-fiction. While stem cells are responsible for significant medical advances, belief in stem cells being limitless molecules can lead to unattainable recovery dreams or desperate misallocated funds in hopes of an impossible miracle. <br><br>
+
+                 Optimism surrounding stem cells must be balanced by scientific realism. A 2007 review of common stem cell misconceptions agrees that “uncritical enthusiasm can outstrip reality,” highlighting how public expectations frequently exceed what current research supports (Weissman et al.). This disconnect between promise and exaggeration persists today, largely because “stem cells” themselves are not a single, uniform entity. Cedars-Sinai researchers stress that not all stem cells are created equally. As discussed in a previous article, there are multiple different types of cells that all fall under the blanket term “stem cells”. Embryonic stem cells and induced pluripotent stem cells are highly differentiable and can turn into almost any cell type, but most adult somatic stem cells are more restricted in their capabilities, only being able to differentiate into their cells of their origin tissue. Treating all stem cells as interchangeable ignores key biological differences and has contributed to misunderstandings among both patients and providers.
+                <br><br>
+
+                A related misconception is the belief that injecting stem cells into a damaged body part will allow them to automatically regenerate tissue by transforming into whatever cell type is needed. This idea is a great oversimplification. In most current clinical therapies, the benefits of stem cells come from secondary mechanisms, such as inflammation reduction or immune modulation, rather than direct replication and replacement (Cedars-Sinai). The notion that stem cells can specifically target an injury, change into complex specialized cells such as neurons or cardiac muscle, integrate seamlessly, and function perfectly is unsupported by evidence and is not widely possible with current technology. The use of stem cells in direct replacement occurs reliably only in narrow contexts like transplants of hematopoietic stem cells for blood disorders and should not be generalized to all tissues and cells. It is important that patients understand the capabilities of what is or is not possible via stem cell use in order to make informed decisions on their treatment.<br><br>
+
+                Another myth is the claim that adult stem cells, or induced pluripotent stem cells, exhibit the same versatility as embryonic stem cells or that they represent an exact alternative with identical capabilities. The 2007 review specifies that iPSCs are lineage-restricted and require multiple developmental steps to produce mature, tissue-specific cells. Although clinical practices often highlight the benefits of iPSCs, these benefits should not be misinterpreted as evidence that adult cells function identically to embryonic ones. It is important to recognize that while adult stem cells are a great, less ethically dubious option, they are not exact matches in function.<br><br>
+
+                Misconceptions surrounding the effectiveness and safety of stem cell therapy represent another major concern. Many commercial stem cell clinics advertise these treatments as highly successful for a wide range of conditions, including degenerative joint diseases, neurological disorders, and chronic inflammatory illnesses. However, Cedars-Sinai experts emphasize that most of these claims lack scientific validation. While clinics in New Jersey promote autologous stem-cell procedures using iPSCs created from bone marrow or adipose tissue, these therapies are still considered experimental in most contexts and are not supported by large-scale, long-term clinical trials. The danger lies in the risk of patients foregoing established medical treatments in favor of unproven alternatives and ultimately being disappointed when their treatment fails. The time and money of the patient or patient’s family can be wrongly allocated to theoretical, unsustainable avenues. Misleading marketing by these stem cell clinics can undermine legitimate research efforts and jeopardize patient safety.<br><br>
+
+                These misconceptions exist and persist for several reasons. Rapid scientific advances often create the impression that breakthroughs are imminent, even when practical applications may be decades away. Media coverage, hopeful patient testimonials, and commercial marketing further blur the line between established clinical uses and speculative possibilities. News networks, after all, are interested in exaggerations that draw audience attention, and marketing teams are interested in making their product seem as desirable as possible. Confusing terminology in the words “stem cell,” “progenitor cell,” “pluripotent,” and “mesenchymal,” adds to public misunderstanding and serves as a barrier to entry for real stem cell knowledge. Ethical debates surrounding embryonic stem cells have also obscured the distinction between different stem-cell sources and contributed to public misperceptions about what adult stem cells can or cannot achieve.<br><br>
+
+
+
+
+
+
+
+
+
+
+
+                Works Cited<br><br>
+                Smith, Austin. “Pluripotent Stem Cells: Private Obsession and Public Expectation.” <i>EMBO</i>. https://pmc.ncbi.nlm.nih.gov/articles/PMC3377278/. 2 Apr. 2010. Accessed 13 Sep. 2025.
+                <br><br>Cedars-Sinai, vol. 2, no. 4, 1 Apr. 2010, pp. 113–116, www.ncbi.nlm.nih.gov/pmc/articles/PMC3377278/, https://doi.org/10.1002/emmm.201000065. Accessed 14 Sep. 2025.
+                <br><br>Kleinsmith, Pierce “Multipotentiality of Single Embryonal Carcinoma Cells.” The University of Michigan. 2 Mar. 1964. Accessed 13 Sep. 2025.
+                <br><br>Weissman “Common Myths Surrounding Stem Cells.” Academy of Science. 1956. Accessed 15 Sep. 2025.
+
+            </p>
+            
+        </div>

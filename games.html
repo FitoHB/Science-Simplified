@@ -5,12 +5,22 @@
   <title>Stem Cell Matching Game</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Times New Roman', Times, serif;
       background: #f4f7fb;
       padding: 20px;
+      background: linear-gradient(135deg, #f1f9ff, #d9ecff);
     }
     h1 {
       text-align: center;
+      position: absolute;
+        top: 15%;
+        left: 36%;
+    }
+    h2 {
+      text-align: center;
+      position: absolute;
+        top: 22%;
+        left: 37%;
     }
     .game-container {
       max-width: 900px;
@@ -18,20 +28,35 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 20px;
+      position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      
     }
     .column {
       background: #ffffff;
       padding: 15px;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
     }
     .item {
-      padding: 10px;
-      margin: 8px 0;
+      
       background: #e9eef6;
       border-radius: 8px;
       cursor: pointer;
       user-select: none;
+      background: #ffffff;
+      border-radius: 50px;
+      padding: 14px 20px;
+      margin: 12px 0;
+      text-align: center;
+      box-shadow: inset 0 0 0 2px #cfe6ff;
+      cursor: pointer;
+      
     }
     .item.selected {
       background: #c7dbff;
@@ -48,12 +73,69 @@
       margin-top: 20px;
       font-weight: bold;
     }
+    
+    
+    nav {
+      background: #ffffff;
+      padding: 0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 2px solid #bae6fd;
+        }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+        }
+
+    nav ul li {
+      margin: 0;
+        }
+
+    nav ul li a {
+      color: #64748b;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 1.2rem 1.5rem;
+      transition: all 0.2s ease;
+      display: block;
+      font-size: 0.95rem;
+      letter-spacing: 0.3px;
+        }
+
+    nav ul li a:hover {
+      color: #0ea5e9;
+      background: #f0f9ff;
+        }
+
+    nav ul li a.active {
+      color: #0ea5e9;
+      border-bottom: 2px solid #0ea5e9;
+      margin-bottom: -2px;
+        }
   </style>
 </head>
 <body>
+  <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About Me</a></li>
+            <li><a href="stem-cells.html">Stem Cells</a></li>
+            <li><a href="articles.html">Latest Articles</a></li>
+            <li><a href="gamehub.html">Games</a></li>
+        </ul>
+    </nav>
+
 
 <h1>Stem Cell Terminology Matching Game</h1>
-<p style="text-align:center">Click one term and then its matching definition.</p>
+<h2>Click one term and then its matching definition.</h2>
 
 <div class="game-container">
   <div class="column" id="terms"></div>
@@ -143,6 +225,7 @@
     }
   }
 </script>
+
 
 </body>
 </html>
